@@ -12,7 +12,7 @@ _male_row_values = ['m', 'male', 'MALE', 'Male', 'M']
 _female_row_values = ['f', 'female', 'FEMALE', 'Female', 'F']
 
 
-def process_csv(path):
+def process_csv(path, source='fit-data'):
     """
     Reads in .csv file and processes it before adding percentiles
 
@@ -23,7 +23,7 @@ def process_csv(path):
     df = pd.read_csv(path, header=None)
 
     top_row = df.iloc[0, :]
-    header_exists = not any(cell.isdigit() for cell in top_row)  # check if any cells in top row are numbers
+    header_exists = not any(cell.isdigit() for cell in top_row)  # ensure top row cells aren't nums
 
     if header_exists:
         df = pd.read_csv(path, header=(0))
@@ -34,11 +34,30 @@ def process_csv(path):
 
     df = _standardize_sex(df)
 
-    for index, row in df.iterrows():
-        percentile = fit_equation.get_percentile(row['sex'], row['age'], row['vomax'])
-        df.loc[index, 'percentile'] = percentile
+    df = _get_percentiles(df, source)
 
     df.to_csv('output/out.csv', index=False)
+
+
+def _get_percentiles(df, source):
+    """
+    Get percentile values based on user defined source
+
+    :param df:standardized dataframe
+    :param source:data source to get percentiles from -- options: fit_data, shiny_data
+    :returns df:dataframe with percentile values added
+    """
+
+    if source == 'fit-data':
+        for index, row in df.iterrows():
+            percentile = fit_equation.get_percentile(row['sex'], row['age'], row['vomax'])
+            df.loc[index, 'percentile'] = percentile
+
+    elif source == 'shiny-data':
+        pass
+        # TODO
+
+    return df
 
 
 def _standardize_sex(df):
@@ -48,6 +67,7 @@ def _standardize_sex(df):
     :param df:dataframe of csv with standardized columns
     :returns df:df with standardized values for sex column
     """
+
     df.replace(_male_row_values, 'm')
     df.replace(_female_row_values, 'f')
 
@@ -61,6 +81,7 @@ def _standardize_cols(df):
     :param df:dataframe of csv with custom columns
     :returns formatted_df:df with proper col names and order for further processing
     """
+
     header = df.columns
     rename = {}
 

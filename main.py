@@ -1,8 +1,8 @@
-import utils
+from .process import process
 
 
 def main():
-    utils.process_csv('sample.csv')
+    process.process_csv('sample.csv')
 
 
 if __name__ == '__main__':

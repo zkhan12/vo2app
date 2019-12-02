@@ -3,6 +3,15 @@ import math
 
 
 def get_percentile(sex, age, vomax):
+    """
+    Gives percentiles based on sex, age, and vo2 max score. Based on equations found at:
+    http://www.kumc.edu/fitness-ranking.html 
+
+    :param sex:the sex of the individual -- options: male or female
+    :param age:age of the individual
+    :param vomax:max vo2 score of the individual
+    :returns percentile:relative percentile of individuals vo2 max score based on age and sex
+    """
 
     if sex == 'm':
         a = -9.266519
