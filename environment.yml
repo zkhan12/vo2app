@@ -1,0 +1,10 @@
+name: vo-app
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - flake8=3.7.9
+  - pip=19.3.1
+  - python=3.7.3
+  - pip:
+    - pandas==0.25.3
