@@ -1,5 +1,5 @@
 import pandas as pd
-from fit_data import fit_equation
+import fit_equation
 
 _default_cols = ['sex', 'age', 'vomax']
 

@@ -1,4 +1,4 @@
-from .process import process
+import process
 
 
 def main():
