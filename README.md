@@ -2,7 +2,7 @@
 This is a command line tool that can be used to get relative percentiles for individuals based on sex, age, and vo2 max scores.
 The percentiles are based on equations gathered from the following sources: 
 - [KUMC](http://www.kumc.edu/fitness-ranking.html)
-- [shiny-data](https://vo2peak.shinyapps.io/vo2peak_calculator/)
+- [Saarland University](https://vo2peak.shinyapps.io/vo2peak_calculator/)
 
 ## Setup
 Clone repo:
