@@ -1,4 +1,4 @@
-from .process import process_csv
+from app_code.process import process_csv
 from argparse import ArgumentParser
 from argparse import RawTextHelpFormatter
 
