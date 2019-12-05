@@ -4,8 +4,20 @@ The percentiles are based on equations gathered from the following sources:
 - [KUMC](http://www.kumc.edu/fitness-ranking.html)
 - [shiny-data](https://vo2peak.shinyapps.io/vo2peak_calculator/)
 
-## How to use tool
-If you have Anaconda or Miniconda running on your machine, you can clone this repository using 
-`git clone https://github.com/zkhan12/vo2app.git`
+## Setup
+Clone repo:
+- `git clone https://github.com/zkhan12/vo2app.git`
 
-Once the repo is cloned, navigate inside the folder using `cd vo2app`
+Enter repo:
+- `cd vo2app`
+
+Install tool:
+- `pip install .`
+
+### Update
+The tool will need to be reinstalled whenever a a pull is made from the repo, to update run `git pull origin master` followed by `pip install .`
+## How to use
+Run the command below, note `outputfile` and `datasource` are optional parameters, for more info run `voconv -h`
+
+By default all output files will be stored in the output folder unless a specified location is given
+`voconv <inputfile> <outputfile> <datasource>`
