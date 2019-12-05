@@ -1,5 +1,5 @@
 import pandas as pd
-from fit_equation import get_percentile
+from .fit_equation import get_percentile
 from datetime import datetime
 from os import path
 

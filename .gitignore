@@ -1,3 +1,6 @@
 __pycache__/
 *.json
 .vscode
+rom-history
+*.csv
+*.egg-info/
