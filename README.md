@@ -14,10 +14,24 @@ Enter repo:
 Install tool:
 - `pip install .`
 
-### Update
+#### Update
 The tool will need to be reinstalled whenever a a pull is made from the repo, to update run `git pull origin master` followed by `pip install .`
-## How to use
-Run the command below, note `outputfile` and `datasource` are optional parameters, for more info run `voconv -h`
 
-By default all output files will be stored in the output folder unless a specified location is given
+## How to use
+Run the command below to get percentile outputs, note `outputfile` and `datasource` are optional parameters, for more info run `voconv -h`
+
 `voconv <inputfile> <outputfile> <datasource>`
+
+By default all output files will be stored in the output folder (`cd output`) unless a specified location is given. The default data source is KUMC.
+
+#### Input structure
+The inputfile must be a csv. If the input file contains a header, it must have sex, age, and vo2 columns, in any order. If it contains no header, the order is assumed to be sex, age, and vo2, in that order. For the sex column, all values must be either [m, Male, MALE, M] or [f, Female, FEMALE, F]. Other values in the sex column will not be processed. Below is a possible sample format for the input file.
+
+Sample.csv
+```
+sex,age,vo2
+m,22,35
+m,45,35
+f,21,30
+m,44,38
+```
