@@ -120,7 +120,6 @@ def _get_file_name():
     """
 
     file_name = str(datetime.date(datetime.today())) + '.csv'
-    # file_path = path.abspath(path.join(path.dirname(__file__), '..', 'output', file_name))
     file_path = os.getcwd() + '/output/' + file_name
 
     return file_path
