@@ -1,5 +1,5 @@
 # vo2app
-This is a command line tool that can be used to get relative percentiles for individuals based on sex, age, and vo2 max scores.
+This is a command line tool that can be used to get relative percentiles for individuals based on sex, age, and relative vo2 max scores.
 The percentiles are based on equations gathered from the following sources: 
 - [University of Kansas Medical Center](http://www.kumc.edu/fitness-ranking.html)
 - [Saarland University](https://vo2peak.shinyapps.io/vo2peak_calculator/)
@@ -30,8 +30,8 @@ The inputfile must be a csv. If the input file contains a header, it must have s
 Sample.csv
 ```
 sex,age,vo2
-m,22,35
-m,45,35
-f,21,30
-m,44,38
+m,22,35.1
+m,45,35.72
+f,21,30.3
+m,44,38.05
 ```
