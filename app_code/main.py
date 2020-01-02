@@ -13,15 +13,15 @@ def _get_parser():
     parser = ArgumentParser(description='vo2 percentile arguments',
                             formatter_class=RawTextHelpFormatter)
 
-    parser.add_argument('input', help='The path of the input csv with '
+    parser.add_argument('input', help='path of the input csv with '
                         'sex, age, and vo2 columns')
 
     parser.add_argument('-o', '-output', default='none',
-                        help='Optional path of output csv')
+                        help='optional path of output csv')
 
-    parser.add_argument('-s', '-source', default='KUMC',
-                        choices=['KUMC', 'kumc', 'SU', 'su', 'SU-ex', 'su-ex'],
-                        help='Data source to get percentiles from, default is KUMC')
+    parser.add_argument('-s', '-source', default='kumc',
+                        choices=['kumc', 'su', 'su-ex'],
+                        help='data source to get percentiles from, default is kumc')
 
     return parser
 
