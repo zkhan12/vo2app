@@ -1,7 +1,7 @@
 import pandas as pd
-from app_code.fit_equation import get_percentile
+from app_code.kumc import get_percentile as get_percentile_kumc
+from app_code.su import get_percentile as get_percentile_su
 from datetime import datetime
-from os import path
 import os
 
 _default_cols = ['sex', 'age', 'vomax']
@@ -54,15 +54,13 @@ def _get_percentiles(df, source):
     :returns df:dataframe with percentile values added
     """
 
-    if (source == 'fit-data') or (source == 'KUMC'):  # TODO fix this once names are established
+    if source.lower() == 'kumc':
         for index, row in df.iterrows():
-            percentile = get_percentile(row['sex'], row['age'], row['vomax'])
+            percentile = get_percentile_kumc(row['sex'], row['age'], row['vomax'])
             df.loc[index, 'percentile'] = percentile
 
-    elif source == 'shiny-data':
-        # TODO
-        print('This source integration is still in progress')
-        quit()
+    elif (source.lower() == 'su') or (source.lower() == 'su-ex'):
+        df = get_percentile_su(df, source.lower() == 'su-ex')
 
     return df
 
@@ -112,14 +110,12 @@ def _standardize_cols(df):
 
 def _get_file_name():
     """
-    Generate the output file name and place it in output directory.
-    Note: there is probably a better way to do this using relative file paths
-          but I couldn't get it working with out setting cwd
+    Generate the output file name and place it in the current working directory.
 
     :returns file_path:the path of the output file
     """
 
     file_name = str(datetime.date(datetime.today())) + '.csv'
-    file_path = os.getcwd() + '/output/' + file_name
+    file_path = os.getcwd() + '/' + file_name
 
     return file_path

@@ -20,7 +20,7 @@ def _get_parser():
                         help='Optional path of output csv')
 
     parser.add_argument('-s', '-source', default='KUMC',
-                        choices=['KUMC', 'shiny-data'],
+                        choices=['KUMC', 'kumc', 'SU', 'su', 'SU-ex', 'su-ex'],
                         help='Data source to get percentiles from, default is KUMC')
 
     return parser
