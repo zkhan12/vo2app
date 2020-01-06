@@ -10,7 +10,7 @@ def simple_csv(tmp_path_factory):
     csv_path = csv_dir / csv_fname
     data_dict = {
         'sex': ['m', 'm', 'f', 'm'],
-        'age': [22, 45, 21, 44],
+        'age': [22, 45, 22, 44],
         'vo2': [35.1, 35.72, 30.3, 38.05]
     }
     df = pd.DataFrame.from_dict(data_dict)

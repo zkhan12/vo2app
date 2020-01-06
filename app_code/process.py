@@ -40,9 +40,13 @@ def process_csv(path, output, source):
     df = _get_percentiles(df, source)
 
     if output == 'none':
-        df.to_csv(_get_file_name(), index=False)
+        output_path = _get_file_name()
     else:
-        df.to_csv(output, index=False)
+        output_path = output
+
+    df.to_csv(output_path, index=False)
+    
+    return(output_path)
 
 
 def _get_percentiles(df, source):
@@ -97,12 +101,10 @@ def _standardize_cols(df):
             rename[col] = 'age'
         elif col in _vo2_col_names:
             rename[col] = 'vomax'
-        elif 'age' in col:
-            pass
         else:
             raise ValueError('Column name not recognized {}'.format(col))
 
-    df = df.rename(columns=rename)
+    df.rename(columns=rename, inplace=True)
     formatted_df = df[_default_cols]
 
     return formatted_df

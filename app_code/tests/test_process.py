@@ -18,4 +18,4 @@ def test_process_csv(tmp_path, simple_csv, fname, source):
     output = tmp_path / fname
     path = process_csv(simple_csv, output, source)
 
-    assert os.path.isfile(output) and path == str(output)
+    assert os.path.isfile(output) and (str(path) == str(output))

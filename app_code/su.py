@@ -26,8 +26,14 @@ def get_percentile(df, exclusion):
 
     for index, row in df.iterrows():
         if row['sex'] == 'm':
+            if (int(row['age']) < 22) or (int(row['age']) > 75):
+                raise ValueError('Age value is not supported using this source:', str(row['age']),
+                                 'Try using a different source')
             percentile = m_df.loc[float(round(row['vomax'], 1)), str(row['age'])]
         elif row['sex'] == 'f':
+            if (int(row['age']) < 22) or (int(row['age']) > 75):
+                raise ValueError('Age value is not supported using this source:', str(row['age']),
+                                 'Try using a different source')
             percentile = f_df.loc[float(round(row['vomax'], 1)), str(row['age'])]
         else:
             raise ValueError('Selected sex is not an option:', row['sex'])
