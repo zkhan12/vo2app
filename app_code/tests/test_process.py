@@ -1,9 +1,7 @@
 """ tests for process.py """
 import os
-
 import pytest
-
-from ..process import process_csv
+from app_code.process import process_csv
 
 
 @pytest.mark.parametrize(

@@ -23,7 +23,7 @@ def _get_parser():
                         choices=['kumc', 'su', 'su-ex'],
                         help='data source to get percentiles from, default is kumc')
 
-    return parser
+    return parser.parse_args()
 
 
 def main():
@@ -31,7 +31,7 @@ def main():
     Filter command line options
     """
 
-    opts = _get_parser().parse_args()  # get options from command line
+    opts = _get_parser()  # get options from command line
 
     if opts.input[-4:] != '.csv':
         raise IOError('Input file is not a csv')

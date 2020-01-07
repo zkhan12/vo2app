@@ -1,6 +1,6 @@
 import pandas as pd
 from app_code.kumc import get_percentile as get_percentile_kumc
-from app_code.su import get_percentile as get_percentile_su
+from app_code.su import get_percentiles as get_percentiles_su
 from datetime import datetime
 import os
 
@@ -20,7 +20,7 @@ def process_csv(path, output, source):
     Reads in .csv file and processes it before adding percentiles
 
     :param path:location of file
-    :returns dataframe:internal representation of csv with standardized column names and row values
+    :returns path:file path of output csv with percentiles
     """
 
     df = pd.read_csv(path, header=None)
@@ -45,7 +45,7 @@ def process_csv(path, output, source):
         output_path = output
 
     df.to_csv(output_path, index=False)
-    
+
     return(output_path)
 
 
@@ -64,7 +64,7 @@ def _get_percentiles(df, source):
             df.loc[index, 'percentile'] = percentile
 
     elif (source.lower() == 'su') or (source.lower() == 'su-ex'):
-        df = get_percentile_su(df, source.lower() == 'su-ex')
+        df = get_percentiles_su(df, source.lower() == 'su-ex')
 
     return df
 

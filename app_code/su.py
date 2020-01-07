@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 
-def get_percentile(df, exclusion):
+def get_percentiles(df, exclusion):
     '''
     Gives percentiles based on sex, age, and vo2 max score. Percentiles can be based on
     data with obese and smoking participants exluded from the reference data set.
