@@ -3,7 +3,7 @@ from argparse import ArgumentParser
 from argparse import RawTextHelpFormatter
 
 
-def _get_parser():
+def _get_parser(args=None):
     """
     Build the parser for command line utilities
 
@@ -23,7 +23,7 @@ def _get_parser():
                         choices=['kumc', 'su', 'su-ex'],
                         help='data source to get percentiles from, default is kumc')
 
-    return parser.parse_args()
+    return parser.parse_args(args)
 
 
 def main():
