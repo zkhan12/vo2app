@@ -3,7 +3,7 @@ This is a command line tool that can be used to get relative percentiles for ind
 The percentiles are based on equations gathered from the following sources: 
 - [University of Kansas Medical Center](http://www.kumc.edu/fitness-ranking.html)
 - [Saarland University](https://vo2peak.shinyapps.io/vo2peak_calculator/)
-  - Note: su sources only support age ranges of 22-75
+  - Note: su sources only support age ranges of 22-75 and relative vo2 max scores between 11-61
 
 # Setup
 
