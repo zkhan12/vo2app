@@ -5,7 +5,11 @@ The percentiles are based on equations gathered from the following sources:
 - [Saarland University](https://vo2peak.shinyapps.io/vo2peak_calculator/)
   - Note: su sources only support age ranges of 22-75
 
-## Setup
+## Setup option 1
+Install tool:
+- 'pip install git+https://github.com/zkhan12/vo2app.git'
+
+## Setup option 2
 Clone repo:
 - `git clone https://github.com/zkhan12/vo2app.git`
 
