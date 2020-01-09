@@ -6,11 +6,18 @@ def get_percentiles(df, exclusion):
     '''
     Gives percentiles based on sex, age, and vo2 max score. Percentiles can be based on
     data with obese and smoking participants exluded from the reference data set.
-    Based on the analysis/data from:
+
+    Based on the data from:
     Rapp et al., 2018 Reference values for peak oxygen uptake: cross-sectional analysis of
     cycle ergometry-based cardiopulmonary exercise tests of 10 090 adult German volunteers
     from the Prevention First Registry.
-    Paper can be found at: https://bmjopen.bmj.com/content/8/3/e018697.long
+    Source: https://bmjopen.bmj.com/content/8/3/e018697.long
+
+    Based on the analysis from:
+    Daniel Rapp 2018, Quantile reference values for peak oxygen uptake: Cross-sectional study
+    of 9,354 adult participants of cardiopulmonary exercise tests using cycle ergometry in
+    three German cities.
+    Source: https://github.com/rappdaniel/vo2peak
 
     :param df: pandas dataframe containing user data
     :param exclusion: whether user specified output percentiles should be based on exclusion data
