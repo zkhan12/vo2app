@@ -7,7 +7,7 @@ The percentiles are based on equations gathered from the following sources:
 
 ## Setup option 1
 Install tool:
-- 'pip install git+https://github.com/zkhan12/vo2app.git'
+- `pip install git+https://github.com/zkhan12/vo2app.git`
 
 ## Setup option 2
 Clone repo:
