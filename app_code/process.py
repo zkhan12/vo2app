@@ -77,8 +77,8 @@ def _standardize_sex(df):
     :returns df:df with standardized values for sex column
     """
 
-    df.replace(_male_row_values, 'm')
-    df.replace(_female_row_values, 'f')
+    df = df.replace(_male_row_values, 'm')
+    df = df.replace(_female_row_values, 'f')
 
     return df
 
