@@ -101,13 +101,10 @@ def _standardize_cols(df):
             rename[col] = 'age'
         elif col in _vo2_col_names:
             rename[col] = 'vomax'
-        else:
-            raise ValueError('Column name not recognized {}'.format(col))
 
     df.rename(columns=rename, inplace=True)
-    formatted_df = df[_default_cols]
 
-    return formatted_df
+    return df
 
 
 def _get_file_name():
