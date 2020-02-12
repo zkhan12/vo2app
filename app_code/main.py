@@ -13,8 +13,8 @@ def _get_parser(args=None):
     parser = ArgumentParser(description='vo2 percentile arguments',
                             formatter_class=RawTextHelpFormatter)
 
-    parser.add_argument('input', help='path of the input csv with '
-                        'sex, age, and vo2 columns')
+    parser.add_argument('-i', '-input', help='path of the input csv with '
+                        'sex, age, and vo2 columns', required=True)
 
     parser.add_argument('-o', '-output', default='none',
                         help='optional path of output csv')
@@ -33,14 +33,14 @@ def main():
 
     opts = _get_parser()  # get options from command line
 
-    if opts.input[-4:] != '.csv':
+    if opts.i[-4:] != '.csv':
         raise IOError('Input file is not a csv')
 
     if opts.o != 'none':
         if opts.o[-4:] != '.csv':
             raise IOError('Output file is not a csv')
 
-    process_csv(opts.input, opts.o, opts.s)
+    process_csv(opts.i, opts.o, opts.s)
 
 
 if __name__ == '__main__':
