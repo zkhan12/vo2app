@@ -31,10 +31,17 @@ Run the command below to get percentile outputs, note `outputfile` and `datasour
 
 By default all output files will be stored in the directory where voconv is called unless a specified location is given. The default data source is KUMC.
 
+#### Sample usage
+`voconv -i ./sample.csv`
+Produces a .csv file with the current date as the file name
+
+`voconv -i ./sample.csv -o ./output.csv -s su`
+Produces an output file called `output.csv` in the same directory as where the command is called and uses the Saarland University data to generate percentiles.
+
 #### Input structure
 The inputfile must be a csv. If the input file contains a header, it must have sex, age, and vo2 columns, in any order. If it contains no header, the order is assumed to be sex, age, and vo2, in that order. For the sex column, all values must be either [m, Male, MALE, M] or [f, Female, FEMALE, F]. Other values in the sex column will not be processed. Below is a possible sample format for the input file.
 
-Sample.csv
+sample.csv
 ```
 sex,age,vo2
 m,22,35.1
